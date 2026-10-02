@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Responsive Viewer",
+  "author": "Solaiman Kmail",
+  "version": "1.0.21",
+  "description": "Show multiple screens once, Responsive design tester",
+  "icons": {
+    "128": "logo.png"
+  },
+  "action": {
+    "default_icon": "logo.png"
+  },
+  "background": {
+    "service_worker": "static/js/background.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "downloads",
+    "webNavigation",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
