@@ -6,6 +6,7 @@
 [![Material-UI](https://img.shields.io/badge/MUI-v5-007FFF?logo=mui&logoColor=white)](https://mui.com/)
 [![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-1.7.2-764ABC?logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub Container Registry](https://img.shields.io/badge/GHCR.io-Docker%20Image-24292e?logo=docker&logoColor=white)](https://github.com/seogeoteam/responsive-viewer/pkgs/container/responsive-viewer)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/inmopeiepgfljkpkidclfgbgbmfcennb.svg?label=Chrome%20Web%20Store&logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb)
 
 > **Responsive Viewer** is a developer-focused browser extension for testing responsive web applications side-by-side across multiple screen sizes, device viewports, and custom orientations in a single unified view with synchronized scrolling, event mirroring, element inspection, and canvas annotations.
@@ -232,6 +233,37 @@ npm test -- src/__tests__/index.test.tsx --coverage --collectCoverageFrom="src/i
 ```
 
 Coverage achieves **100% Statements, 100% Branch, 100% Functions, and 100% Lines** for core application entry points.
+
+---
+
+## 🐳 Docker & GitHub Container Registry (GHCR)
+
+Responsive Viewer can be deployed as an isolated web application container served via Alpine Nginx. Container images are automatically built and published to the **GitHub Container Registry (GHCR)** via GitHub Actions.
+
+### Pulling from GitHub Container Registry
+
+```bash
+docker pull ghcr.io/seogeoteam/responsive-viewer:latest
+```
+
+### Running the Container
+
+```bash
+docker run -d \
+  --name responsive-viewer \
+  -p 8080:80 \
+  --restart unless-stopped \
+  ghcr.io/seogeoteam/responsive-viewer:latest
+```
+
+Access the standalone Responsive Viewer suite in your browser at `http://localhost:8080`.
+
+### Building the Image Locally
+
+```bash
+docker build -t responsive-viewer:local .
+docker run -d -p 8080:80 responsive-viewer:local
+```
 
 ---
 
